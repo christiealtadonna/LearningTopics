@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_comments"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="example.com.learningtopics.CommentsActivity">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Comments"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:layout_above="@+id/textInput"/>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="0dp"
+        android:id="@+id/textInput"
+        android:layout_weight="10"
+        android:layout_marginTop="10dp"
+        android:paddingTop="0dp"
+        android:layout_gravity="top"
+        android:layout_height="wrap_content"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </ScrollView>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/add_comment_button"
+        android:layout_gravity="center_horizontal"
+        android:text="COMMENT"
+        android:layout_below="@+id/add_comment"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="12dp" />
+
+    <EditText
+        android:id="@+id/add_comment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Any thoughts?"
+        android:imeOptions="actionUnspecified"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:layout_below="@+id/scrollView2"
+        android:layout_toRightOf="@+id/textInput"
+        android:layout_toEndOf="@+id/textInput" />
+
+    <ListView
+        android:id="@+id/listview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="108dp"
+        android:layout_below="@+id/textView"
+        android:layout_marginBottom="10dp"/>
+
+</RelativeLayout>
