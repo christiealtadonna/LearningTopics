@@ -27,6 +27,7 @@ public class CommentsActivity extends AppCompatActivity {
     List<Comment> commentList;
     int post_id;
     CommentListViewAdapter commentsAdapter;
+    ListView commentListView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +38,7 @@ public class CommentsActivity extends AppCompatActivity {
         final ListView listView = (ListView)findViewById(R.id.listview);
         Intent intent = getIntent();
         String comments = intent.getStringExtra("comments");
-        ListView commentListView = (ListView) findViewById(R.id.listview);
+        commentListView = (ListView) findViewById(R.id.listview);
         commentList = new ArrayList<>();
         commentsAdapter = new CommentListViewAdapter(this, commentList);
 
@@ -95,11 +96,11 @@ public class CommentsActivity extends AppCompatActivity {
             post_id = Integer.parseInt(temp[3]);
             Log.d("topid is: ", temp[0]);
             commentList.add(comment);
-            Log.d("comment list i is: ", commentList.get(i)+"");
+            Log.d("comment list i is: ", commentList.get(i).toString()+"");
         }
 
         commentsAdapter.setCommentList(commentList);
-
+        commentListView.setAdapter(commentsAdapter);
 //        Connect conn = new Connect(this);
 //        String postId = post_id+"";
 //        conn.execute("comments",postId);

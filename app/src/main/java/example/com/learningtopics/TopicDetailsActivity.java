@@ -69,6 +69,7 @@ public class TopicDetailsActivity extends AppCompatActivity {
             //PostRecyclerViewAdapter mAdapter = new PostRecyclerViewAdapter(null, this);
             mRecyclerView.setAdapter(mAdapter);
         }
+        mAdapter.setTopic(topic_id);
 
         Button addPost = (Button) findViewById(R.id.addPostButton);
         addPost.setOnClickListener(new View.OnClickListener() {

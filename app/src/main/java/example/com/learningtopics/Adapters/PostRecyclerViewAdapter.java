@@ -26,6 +26,7 @@ public class PostRecyclerViewAdapter extends RecyclerView.Adapter<PostRecyclerVi
         private List<Post> postList;
         private Context context; //for when call Connect
         //  private final TopicListFragment.OnTopicDetailsListener mListener;
+        private int topic_id;
 
 
         public PostRecyclerViewAdapter(List<Post> items, Context context) {//, TopicListFragment.OnTopicDetailsListener listener) {
@@ -35,6 +36,10 @@ public class PostRecyclerViewAdapter extends RecyclerView.Adapter<PostRecyclerVi
 //        mListener = listener;
         }
 
+        public void setTopic(int topicID){
+            topic_id = topicID;
+
+        }
         public PostRecyclerViewAdapter(Context context){
             this.context = context;
         }
@@ -80,7 +85,8 @@ public class PostRecyclerViewAdapter extends RecyclerView.Adapter<PostRecyclerVi
                     String likes = holder.mPost.getLikes()+"";
                     String postID = holder.mPost.getPostId()+"";
                     Connect conn = new Connect(context);
-                    conn.execute("like", postID,likes);
+                    String topicID = topic_id+"";
+                    conn.execute("like", postID,likes,topicID);
                 }
             });
             holder.author.setOnClickListener(new View.OnClickListener() {

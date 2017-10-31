@@ -118,9 +118,11 @@ public class Connect extends AsyncTask<String,Void,String> {
             else if(method.equals("like")){
                 String post_id = (String) params[1];
                 String likes = (String) params[2];
+                String topicID = (String) params[3]; //so you can get topics back
                 data = URLEncoder.encode("method", "UTF-8") + "=" + URLEncoder.encode(method, "UTF-8");
                 data += "&" + URLEncoder.encode("post_id", "UTF-8") + "=" + URLEncoder.encode(post_id, "UTF-8");
                 data += "&" + URLEncoder.encode("likes", "UTF-8") + "=" + URLEncoder.encode(likes, "UTF-8");
+                data += "&" + URLEncoder.encode("topic_id", "UTF-8") + "=" + URLEncoder.encode(topicID, "UTF-8");
 
             }
             else if(method.equals("add_post")){
@@ -203,7 +205,7 @@ public class Connect extends AsyncTask<String,Void,String> {
             //fill in your_computer_id ******
             Log.d("Before url ", "link");
             //Make sure you use your IP address bc localhost doesnt work for emulator
-            String link = "http://128.180.140.182:8888/demo/finalproject.php";
+            String link = "http://128.180.143.18:8888/demo/finalproject.php";
             URL url = new URL(link);
             URLConnection conn = url.openConnection();
             Log.d("After trying to open","connection");
@@ -285,7 +287,7 @@ public class Connect extends AsyncTask<String,Void,String> {
         }
         else if(result.startsWith("Like")){
            TopicDetailsActivity topicDetails= (TopicDetailsActivity) context;
-            topicDetails.refreshPageLikes();
+            topicDetails.refreshPage(r[1]);
         }
         else if(result.startsWith("Add Post")){
             TopicDetailsActivity topicDetails= (TopicDetailsActivity) context;
